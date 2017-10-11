@@ -1,0 +1,62 @@
+{
+    "name": "fceux-autocomplete",
+    "displayName": "fceux-autocomplete",
+    "description": "Autocomplete for lua scripts targeting the FCEUX emulator.",
+    "version": "0.0.1",
+    "publisher": "erd0s",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "capabilities": {
+        "completionProvider": {
+            "resolveProvider": "true",
+            "triggerCharacters": [
+                "."
+            ]
+        }
+    },
+    "activationEvents": [
+        "onLanguage:terraform",
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.sayHello",
+                "title": "Hello World"
+            }
+        ],
+        "languages": [
+            {
+              "id": "terraform",
+              "aliases": [
+                "Terraform",
+                "terraform"
+              ],
+              "extensions": [
+                ".tf",
+                ".tfvars",
+                ".hcl"
+              ],
+              "configuration": "./terraform.configuration.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.32",
+        "@types/node": "^6.0.40",
+        "mocha": "^2.3.3",
+        "typescript": "^2.0.3",
+        "vscode": "^1.1.5"
+    }
+}

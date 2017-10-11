@@ -1,9 +1,13 @@
 {
-    "name": "fceux-autocomplete",
-    "displayName": "fceux-autocomplete",
-    "description": "Autocomplete for lua scripts targeting the FCEUX emulator.",
-    "version": "0.0.1",
+    "name": "terraform-autocomplete",
+    "displayName": "Terraform Autocomplete",
+    "description": "Autocomplete for AWS resources with terraform.",
+    "version": "0.0.2",
     "publisher": "erd0s",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/erd0s/terraform-autocomplete"
+    },
     "engines": {
         "vscode": "^1.5.0"
     },
@@ -19,30 +23,23 @@
         }
     },
     "activationEvents": [
-        "onLanguage:terraform",
-        "onCommand:extension.sayHello"
+        "onLanguage:terraform"
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [
-            {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            }
-        ],
         "languages": [
             {
-              "id": "terraform",
-              "aliases": [
-                "Terraform",
-                "terraform"
-              ],
-              "extensions": [
-                ".tf",
-                ".tfvars",
-                ".hcl"
-              ],
-              "configuration": "./terraform.configuration.json"
+                "id": "terraform",
+                "aliases": [
+                    "Terraform",
+                    "terraform"
+                ],
+                "extensions": [
+                    ".tf",
+                    ".tfvars",
+                    ".hcl"
+                ],
+                "configuration": "./terraform.configuration.json"
             }
         ]
     },

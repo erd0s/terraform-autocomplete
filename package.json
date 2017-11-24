@@ -2,7 +2,7 @@
     "name": "terraform-autocomplete",
     "displayName": "Terraform Autocomplete",
     "description": "Autocomplete for AWS resources with terraform.",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "publisher": "erd0s",
     "repository": {
         "type": "git",
@@ -58,6 +58,7 @@
     },
     "dependencies": {
         "@types/opn": "^3.0.28",
+        "lodash": "^4.17.4",
         "opn": "^5.1.0"
     }
 }

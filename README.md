@@ -2,7 +2,7 @@
 
 WARNING! This is very beta, things might not work as expected so don't rely solely on this extension as a complete reference to terraform parameters and exported arguments. PRs welcome!
 
-This extension provides basic autocomplete on AWS resources.
+This extension provides basic autocomplete on AWS resources. Scraping functionality can be found at https://github.com/erd0s/terraform-scrape.
 
 ## Requirements
 

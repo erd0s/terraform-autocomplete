@@ -1,0 +1,1 @@
+* Add the meta parameters from https://www.terraform.io/docs/configuration/resources.html#lifecycle

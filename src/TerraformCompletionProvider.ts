@@ -1,5 +1,5 @@
 import { CompletionItemProvider, TextDocument, Position, CancellationToken, CompletionItem, CompletionItemKind } from "vscode";
-import * as resources from './aws-resources';
+var resources = require('../../aws-resources.json');
 import * as _ from "lodash";
 
 var topLevelTypes = ["output", "provider", "resource", "variable", "data"];
@@ -58,7 +58,7 @@ export class TerraformCompletionProvider implements CompletionItemProvider {
                 // We're trying to type the exported field for the var
                 var resourceType = parts[0];
                 var resourceName = parts[1];
-                var attrs = resources.resources[resourceType].attrs;
+                var attrs = resources[resourceType].attrs;
                 var result = _.map(attrs, o => {
                     let c = new CompletionItem(`${o.name} (${resourceType})`, CompletionItemKind.Property);
                     c.detail = o.description;
@@ -85,7 +85,7 @@ export class TerraformCompletionProvider implements CompletionItemProvider {
             let parentType = this.getParentType(line);
             if (parentType && parentType.type == "resource") {
                 let resourceType = this.getResourceTypeFromLine(line);
-                return this.getItemsForArgs(resources.resources[resourceType].args, resourceType);                
+                return this.getItemsForArgs(resources[resourceType].args, resourceType);                
             } 
             else if (parentType && parentType.type != "resource") {
                 // We don't want to accidentally include some other containers stuff
@@ -164,7 +164,7 @@ export class TerraformCompletionProvider implements CompletionItemProvider {
         if (parts.length == 2 && parts[0] == "resource") {
             let r = parts[1].replace(/"/g, '');
             let regex = new RegExp("^" + r);
-            var possibleResources = _.filter(_.keys(resources.resources), k => {
+            var possibleResources = _.filter(_.keys(resources), k => {
                 if (regex.test(k)) {
                     return true;
                 }

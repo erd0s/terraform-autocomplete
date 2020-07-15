@@ -58,7 +58,7 @@
     },
     "dependencies": {
         "@types/opn": "^3.0.28",
-        "lodash": "^4.17.4",
+        "lodash": "^4.17.19",
         "opn": "^5.1.0"
     }
 }
